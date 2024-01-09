@@ -219,8 +219,6 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     main()
-            if event.type == pygame.VIDEORESIZE:
-                pygame.display.set_mode((event.w, event.h), pygame.RESIZABLE)
 
     pygame.quit()
 
