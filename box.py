@@ -8,7 +8,6 @@ def isEqual(choices, roll) -> bool:
 
 def removeFromBoard(board, choices):
     for num in choices:
-        print("remove this: ", num.getValue())
         board.remove(num.getValue())
 
 

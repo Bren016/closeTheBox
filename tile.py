@@ -15,16 +15,14 @@ def update(tiles, tilesH, numbers, pos):
     for tile in range(len(tiles)):
         if tiles[tile].isClicked(pos) and not tiles[tile].alreadyClicked and not tiles[tile].isDown:
             tiles[tile].alreadyClicked = True
-            numbers.append(tiles[tile])  # .getValue())
-            print("added", tiles[tile].getValue(), "to list")
+            numbers.append(tiles[tile])
         if tilesH[tile].isClicked(pos) and not tilesH[tile].alreadyClicked and not tiles[tile].isDown:
             tilesH[tile].alreadyClicked = True
             tilesH[tile].counter += 1
         if tilesH[tile].isClicked(pos) and tilesH[tile].counter == 2 and not tiles[tile].isDown:
             tiles[tile].removeHighlighter()
-            print("in list: ", tiles[tile].getValue() in numbers)
-            numbers.remove(tiles[tile])  # .getValue())
-            numbers.remove(tiles[tile])  # .getValue())
+            numbers.remove(tiles[tile])
+            numbers.remove(tiles[tile])
             tilesH[tile].counter = 0
 
 
@@ -41,6 +39,12 @@ class Tile:
         self.highlighted = False
         self.isDown = False
 
+    def resetTile(self) -> None:
+        self.clicked = False
+        self.alreadyClicked = False
+        self.highlighted = False
+        self.isDown = False
+
     def draw(self, screen) -> None:
         screen.blit(self.image, (self.rect.x, self.rect.y))
 
@@ -49,7 +53,6 @@ class Tile:
             if pygame.mouse.get_pressed()[0] and not self.clicked:
                 self.clicked = True
                 self.highlighted = True
-                print("clicked")
 
         if not pygame.mouse.get_pressed()[0]:
             self.clicked = False
