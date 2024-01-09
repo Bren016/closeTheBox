@@ -33,6 +33,12 @@ def main():
     rulesImage = pygame.image.load("rules.png").convert_alpha()
     rules = button.Button(1085, 15, rulesImage, 1)
 
+    rulesTextImage = pygame.image.load("rulesCTB.png").convert_alpha()
+    rulesText = background.Background(357, 125, rulesTextImage, 1)
+
+    closeImage = pygame.image.load("close.png").convert_alpha()
+    close = button.Button(775, 630, closeImage, 0.5)
+
     tile1Image = pygame.image.load("tile1.png").convert_alpha()
     tile1 = tile.Tile(1, 220, 400, tile1Image, 0.7)
     tile1HImage = pygame.image.load("tile1H.png").convert_alpha()
@@ -131,7 +137,6 @@ def main():
     gameOver = False
     validate = False
     score = 78
-    close = False
     showRules = False
 
     run = True
@@ -157,9 +162,15 @@ def main():
 
         if rules.isClicked(pos) and not rules.alreadyClicked:
             showRules = True
+            close.clicked = False
+            close.alreadyClicked = False
 
         if showRules:
-            pygame.draw.rect(screen, (0, 0, 0), (400, 150, 400, 500))
+            rulesText.draw(screen)
+            close.draw(screen)
+
+        if close.isClicked(pos) and not close.alreadyClicked:
+            showRules = False
 
         if submit.isClicked(pos) and not submit.alreadyClicked:
             submit.alreadyClicked = True
