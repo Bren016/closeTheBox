@@ -5,9 +5,10 @@ import text
 import tile
 import dice
 import box
+import asyncio
 
 
-def main():
+async def main():
     pygame.init()
     # SET SCREEN
     SCREEN_WIDTH = 1200
@@ -218,9 +219,11 @@ def main():
                 run = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
-                    main()
+                    asyncio.run(main())
+
+        await asyncio.sleep(0)
 
     pygame.quit()
 
 
-main()
+asyncio.run(main())
