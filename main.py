@@ -5,10 +5,9 @@ import text
 import tile
 import dice
 import box
-import asyncio
 
 
-async def main():
+def main():
     pygame.init()
     # SET SCREEN
     SCREEN_WIDTH = 1200
@@ -22,106 +21,106 @@ async def main():
     fontSmall = pygame.font.SysFont('Lucida Sans', 14)
 
     # LOAD IMAGES
-    boxImage = pygame.image.load("box.png").convert_alpha()
+    boxImage = pygame.image.load("images/box.png").convert_alpha()
     gameBox = background.Background(100, 100, boxImage, 0.7)
 
-    submitImage = pygame.image.load("confirm.png").convert_alpha()
+    submitImage = pygame.image.load("images/confirm.png").convert_alpha()
     submit = button.Button(520, 300, submitImage, 1.5)
 
-    rollImage = pygame.image.load("roll.png").convert_alpha()
+    rollImage = pygame.image.load("images/roll.png").convert_alpha()
     roll = button.Button(380, 535, rollImage, 0.6)
 
-    rulesImage = pygame.image.load("rules.png").convert_alpha()
+    rulesImage = pygame.image.load("images/rules.png").convert_alpha()
     rules = button.Button(1085, 15, rulesImage, 1)
 
-    rulesTextImage = pygame.image.load("rulesCTB.png").convert_alpha()
+    rulesTextImage = pygame.image.load("images/rulesCTB.png").convert_alpha()
     rulesText = background.Background(357, 125, rulesTextImage, 1)
 
-    closeImage = pygame.image.load("close.png").convert_alpha()
+    closeImage = pygame.image.load("images/close.png").convert_alpha()
     close = button.Button(775, 630, closeImage, 0.5)
 
-    tile1Image = pygame.image.load("tile1.png").convert_alpha()
+    tile1Image = pygame.image.load("images/tile1.png").convert_alpha()
     tile1 = tile.Tile(1, 220, 400, tile1Image, 0.7)
-    tile1HImage = pygame.image.load("tile1H.png").convert_alpha()
+    tile1HImage = pygame.image.load("images/tile1H.png").convert_alpha()
     tile1H = button.Button(220, 400, tile1HImage, 0.7)
-    tile1DImage = pygame.image.load("down1.png").convert_alpha()
+    tile1DImage = pygame.image.load("images/down1.png").convert_alpha()
     tile1D = background.Background(210, 450, tile1DImage, 0.7)
 
-    tile2Image = pygame.image.load("tile2.png").convert_alpha()
+    tile2Image = pygame.image.load("images/tile2.png").convert_alpha()
     tile2 = tile.Tile(2, 283, 400, tile2Image, 0.7)
-    tile2HImage = pygame.image.load("tile2H.png").convert_alpha()
+    tile2HImage = pygame.image.load("images/tile2H.png").convert_alpha()
     tile2H = button.Button(283, 400, tile2HImage, 0.7)
-    # tile2DImage = pygame.image.load("down2.png").convert_alpha()
+    # tile2DImage = pygame.image.load("images/down2.png").convert_alpha()
     tile2D = background.Background(273, 450, tile1DImage, 0.7)
 
-    tile3Image = pygame.image.load("tile3.png").convert_alpha()
+    tile3Image = pygame.image.load("images/tile3.png").convert_alpha()
     tile3 = tile.Tile(3, 346, 400, tile3Image, 0.7)
-    tile3HImage = pygame.image.load("tile3H.png").convert_alpha()
+    tile3HImage = pygame.image.load("images/tile3H.png").convert_alpha()
     tile3H = button.Button(346, 400, tile3HImage, 0.7)
-    # tile3DImage = pygame.image.load("down3.png").convert_alpha()
+    # tile3DImage = pygame.image.load("images/down3.png").convert_alpha()
     tile3D = background.Background(336, 450, tile1DImage, 0.7)
 
-    tile4Image = pygame.image.load("tile4.png").convert_alpha()
+    tile4Image = pygame.image.load("images/tile4.png").convert_alpha()
     tile4 = tile.Tile(4, 409, 400, tile4Image, 0.7)
-    tile4HImage = pygame.image.load("tile4H.png").convert_alpha()
+    tile4HImage = pygame.image.load("images/tile4H.png").convert_alpha()
     tile4H = button.Button(409, 400, tile4HImage, 0.7)
-    # tile4DImage = pygame.image.load("down4.png").convert_alpha()
+    # tile4DImage = pygame.image.load("images/down4.png").convert_alpha()
     tile4D = background.Background(399, 450, tile1DImage, 0.7)
 
-    tile5Image = pygame.image.load("tile5.png").convert_alpha()
+    tile5Image = pygame.image.load("images/tile5.png").convert_alpha()
     tile5 = tile.Tile(5, 472, 400, tile5Image, 0.7)
-    tile5HImage = pygame.image.load("tile5H.png").convert_alpha()
+    tile5HImage = pygame.image.load("images/tile5H.png").convert_alpha()
     tile5H = button.Button(472, 400, tile5HImage, 0.7)
-    # tile5DImage = pygame.image.load("down5.png").convert_alpha()
+    # tile5DImage = pygame.image.load("images/down5.png").convert_alpha()
     tile5D = background.Background(462, 450, tile1DImage, 0.7)
 
-    tile6Image = pygame.image.load("tile6.png").convert_alpha()
+    tile6Image = pygame.image.load("images/tile6.png").convert_alpha()
     tile6 = tile.Tile(6, 535, 400, tile6Image, 0.7)
-    tile6HImage = pygame.image.load("tile6H.png").convert_alpha()
+    tile6HImage = pygame.image.load("images/tile6H.png").convert_alpha()
     tile6H = button.Button(535, 400, tile6HImage, 0.7)
-    # tile6DImage = pygame.image.load("down6.png").convert_alpha()
+    # tile6DImage = pygame.image.load("images/down6.png").convert_alpha()
     tile6D = background.Background(525, 450, tile1DImage, 0.7)
 
-    tile7Image = pygame.image.load("tile7.png").convert_alpha()
+    tile7Image = pygame.image.load("images/tile7.png").convert_alpha()
     tile7 = tile.Tile(7, 598, 400, tile7Image, 0.7)
-    tile7HImage = pygame.image.load("tile7H.png").convert_alpha()
+    tile7HImage = pygame.image.load("images/tile7H.png").convert_alpha()
     tile7H = button.Button(598, 400, tile7HImage, 0.7)
-    # tile7DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile7DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile7D = background.Background(588, 450, tile1DImage, 0.7)
 
-    tile8Image = pygame.image.load("tile8.png").convert_alpha()
+    tile8Image = pygame.image.load("images/tile8.png").convert_alpha()
     tile8 = tile.Tile(8, 661, 400, tile8Image, 0.7)
-    tile8HImage = pygame.image.load("tile8H.png").convert_alpha()
+    tile8HImage = pygame.image.load("images/tile8H.png").convert_alpha()
     tile8H = button.Button(661, 400, tile8HImage, 0.7)
-    # tile8DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile8DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile8D = background.Background(651, 449, tile1DImage, 0.7)
 
-    tile9Image = pygame.image.load("tile9.png").convert_alpha()
+    tile9Image = pygame.image.load("images/tile9.png").convert_alpha()
     tile9 = tile.Tile(9, 724, 400, tile9Image, 0.7)
-    tile9HImage = pygame.image.load("tile9H.png").convert_alpha()
+    tile9HImage = pygame.image.load("images/tile9H.png").convert_alpha()
     tile9H = button.Button(724, 400, tile9HImage, 0.7)
-    # tile9DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile9DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile9D = background.Background(714, 448, tile1DImage, 0.7)
 
-    tile10Image = pygame.image.load("tile10.png").convert_alpha()
+    tile10Image = pygame.image.load("images/tile10.png").convert_alpha()
     tile10 = tile.Tile(10, 787, 400, tile10Image, 0.7)
-    tile10HImage = pygame.image.load("tile10H.png").convert_alpha()
+    tile10HImage = pygame.image.load("images/tile10H.png").convert_alpha()
     tile10H = button.Button(787, 400, tile10HImage, 0.7)
-    # tile10DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile10DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile10D = background.Background(777, 447, tile1DImage, 0.7)
 
-    tile11Image = pygame.image.load("tile11.png").convert_alpha()
+    tile11Image = pygame.image.load("images/tile11.png").convert_alpha()
     tile11 = tile.Tile(11, 850, 400, tile11Image, 0.7)
-    tile11HImage = pygame.image.load("tile11H.png").convert_alpha()
+    tile11HImage = pygame.image.load("images/tile11H.png").convert_alpha()
     tile11H = button.Button(850, 400, tile11HImage, 0.7)
-    # tile11DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile11DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile11D = background.Background(840, 446, tile1DImage, 0.7)
 
-    tile12Image = pygame.image.load("tile12.png").convert_alpha()
+    tile12Image = pygame.image.load("images/tile12.png").convert_alpha()
     tile12 = tile.Tile(12, 913, 400, tile12Image, 0.7)
-    tile12HImage = pygame.image.load("tile12H.png").convert_alpha()
+    tile12HImage = pygame.image.load("images/tile12H.png").convert_alpha()
     tile12H = button.Button(913, 400, tile12HImage, 0.7)
-    # tile12DImage = pygame.image.load("down7.png").convert_alpha()
+    # tile12DImage = pygame.image.load("images/down7.png").convert_alpha()
     tile12D = background.Background(903, 445, tile1DImage, 0.7)
 
     # INITIALIZE VARIABLES
@@ -219,11 +218,10 @@ async def main():
                 run = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
-                    asyncio.run(main())
-
-        await asyncio.sleep(0)
+                    main()
 
     pygame.quit()
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    main()

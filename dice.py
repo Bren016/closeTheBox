@@ -6,12 +6,12 @@ def rollDice(screen, x1, y1, x2, y2, scale):
     roll = True
     count = 0
     clock = pygame.time.Clock()
-    side1Image = pygame.image.load("die1.png").convert_alpha()
-    side2Image = pygame.image.load("die2.png").convert_alpha()
-    side3Image = pygame.image.load("die3.png").convert_alpha()
-    side4Image = pygame.image.load("die4.png").convert_alpha()
-    side5Image = pygame.image.load("die5.png").convert_alpha()
-    side6Image = pygame.image.load("die6.png").convert_alpha()
+    side1Image = pygame.image.load("images/die1.png").convert_alpha()
+    side2Image = pygame.image.load("images/die2.png").convert_alpha()
+    side3Image = pygame.image.load("images/die3.png").convert_alpha()
+    side4Image = pygame.image.load("images/die4.png").convert_alpha()
+    side5Image = pygame.image.load("images/die5.png").convert_alpha()
+    side6Image = pygame.image.load("images/die6.png").convert_alpha()
 
     while roll:
         count += 1
